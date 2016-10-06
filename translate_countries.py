@@ -7,9 +7,9 @@ import aiohttp
 
 
 DATA_URL = (
-    'https://gist.githubusercontent.com/'
-    'fashust/b12f7469f481a1bc29f0e5bfb559e9d0/raw/'
-    'f9fb4251ff9cc14a9d366cc85de612cea6d9692c/countries.json'
+    'https://gist.githubusercontent.com/fashust/'
+    'b12f7469f481a1bc29f0e5bfb559e9d0/raw/'
+    'e34dfd0520b1062c630982ec29d27528e321bff0/merged_countries_data.json'
 )
 API_KEY = ('https://tech.yandex.ru/keys/')
 BASE_API_URL = (
@@ -57,7 +57,9 @@ async def translate_data(data, loop):
 
 def store_translated_data(data):
     with open('ru_en_uk_countries.json', 'w') as out:
-        out.write(json.dumps(data, indent=4))
+        out.write(
+            json.dumps(data, indent=4, sort_keys=True, ensure_ascii=False)
+        )
 
 
 
